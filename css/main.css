@@ -4,6 +4,73 @@
 /*nav bar*/
 @import url(navbar.css);
 
+
+/* == Menu echap== */
+.menu-echap {
+  position: fixed;
+  inset: 0;                          /* couvre tout l'écran */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);    /* noir transparent : change 0.7 pour régler */
+  backdrop-filter: blur(4px);        /* flou léger de la page derrière (optionnel) */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.menu-echap.ouvert {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-echap nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(320px, 85vw);
+  text-align: center;
+}
+
+.menu-echap-liens {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: min(320px, 85vw);
+  text-align: center;
+}
+
+.menu-echap h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.menu-echap a,
+.menu-echap button {
+  display: block;
+  padding: 14px 20px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.menu-echap a:hover,
+.menu-echap button:hover,
+.menu-echap a:focus-visible,
+.menu-echap button:focus-visible {
+  background: #fff;
+  color: #000;
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-echap { transition: none; }
+}
+
 .desc-photo{
     display : grid ;
     place-items : center ;

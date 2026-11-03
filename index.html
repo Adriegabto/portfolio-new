@@ -91,14 +91,59 @@
     <div class="Contact" id="contact">
         <h2>
             <a class="button2" 
-                href="Adriegabto@gmail.com">Contactez-moi !</a>
+                href="mailto:Adriegabto@gmail.com">Contactez-moi !</a>
             </a>
         </h2>
     </div>
     <br>
+
+    <div class="menu-echap" id="menu-echap" role="dialog" aria-modal="true" aria-labelledby="menu-titre" aria-hidden="true">
+        <div class="menu-echap-liens">
+            <h2 id="menu-titre">Menu</h2>
+            <a href="index.html">Accueil</a>
+            <a href="index.html#EXP">Experiences</a>
+            <a href="index.html#COMP">Languages</a>
+            <a href="projet-menu.html">Projets</a>
+            <a href="mailto:Adriegabto@gmail.com">Me contacter</a>
+            <button type="button" id="menu-fermer">Fermer</button>
+        </div>
+    </div>
+
     <footer>
         &copy; Adrien Boyer
     </footer>
 
+    <script>
+        const menu = document.getElementById("menu-echap");
+        const boutonFermer = document.getElementById("menu-fermer");
+        let elementAvantOuverture = null;
+     
+        function ouvrirMenu() {
+          elementAvantOuverture = document.activeElement;
+          menu.classList.add("ouvert");
+          menu.setAttribute("aria-hidden", "false");
+          menu.querySelector("a").focus();             // le clavier passe dans le menu
+        }
+     
+        function fermerMenu() {
+          menu.classList.remove("ouvert");
+          menu.setAttribute("aria-hidden", "true");
+          if (elementAvantOuverture) elementAvantOuverture.focus();
+        }
+     
+        // Échap ouvre ou ferme le menu
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            menu.classList.contains("ouvert") ? fermerMenu() : ouvrirMenu();
+          }
+        });
+     
+        // Bouton « Fermer » et clic sur le fond noir
+        boutonFermer.addEventListener("click", fermerMenu);
+        menu.addEventListener("click", (e) => {
+          if (e.target === menu) fermerMenu();
+        });
+      </script>
+    
 </body>
 </html>
