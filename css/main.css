@@ -35,7 +35,7 @@
 .menu-echap-liens {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
   width: min(320px, 85vw);
   text-align: center;
 }
