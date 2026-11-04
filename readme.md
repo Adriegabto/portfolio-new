@@ -1,6 +1,6 @@
 # Portfolio
 
-Lien : https://github.com/Adriegabto/portfolio-new.git
+Lien : https://adriegabto.github.io/portfolio-new/
 
 # Portfolio Adrien 
 
